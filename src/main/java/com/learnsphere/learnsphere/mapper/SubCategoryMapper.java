@@ -12,6 +12,7 @@ public class SubCategoryMapper implements Mapper<SubCategory, SubCategoryRequest
        SubCategory subCategory = new SubCategory();
        subCategory.setName(request.getName());
        subCategory.setDescription(request.getDescription());
+       subCategory.setCategory(request.getCategory());
        return subCategory;
     }
 

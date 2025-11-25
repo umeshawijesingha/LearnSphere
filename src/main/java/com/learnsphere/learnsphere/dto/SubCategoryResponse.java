@@ -4,6 +4,7 @@ import com.learnsphere.learnsphere.entity.Category;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Getter
@@ -14,6 +15,6 @@ public class SubCategoryResponse {
     private String name;
     private String description;
     private Category category;
-    private Date createdAt;
-    private Date updatedAt;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 }

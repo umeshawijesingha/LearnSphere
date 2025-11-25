@@ -6,8 +6,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @NoArgsConstructor
@@ -15,6 +18,7 @@ import java.util.Date;
 @Getter
 @Setter
 @Table(name = "sub_categories")
+@EntityListeners(AuditingEntityListener.class)
 public class SubCategory {
 
     @Id
@@ -23,8 +27,12 @@ public class SubCategory {
 
     private String name;
     private String description;
-    private Date createdAt;
-    private Date updatedAt;
+
+    @CreatedDate
+    private LocalDateTime createdAt;
+
+    @LastModifiedDate
+    private LocalDateTime updatedAt;
 
     @ManyToOne
     @JoinColumn(name = "category_id")
