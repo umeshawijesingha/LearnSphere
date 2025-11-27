@@ -7,7 +7,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -16,6 +20,7 @@ import java.util.Date;
 @Getter
 @Setter
 @Table(name = "teachers")
+@EntityListeners(AuditingEntityListener.class)
 public class Teacher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +28,10 @@ public class Teacher {
     private String keycloakUserId;
     private String firstName;
     private String LastName;
+
+    @Column(unique = true)
     private String email;
+
     private String contactNo;
     private String address;
     private String city;
@@ -34,6 +42,10 @@ public class Teacher {
     private String qualifications;
     private StudentStatus status;
     private Date dateOfBirth;
-    private Date createdAt;
-    private Date updatedAt;
+
+    @CreatedDate
+    private LocalDateTime createdAt;
+
+    @LastModifiedDate
+    private LocalDateTime updatedAt;
 }

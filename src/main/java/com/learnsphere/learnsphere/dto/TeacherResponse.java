@@ -4,6 +4,7 @@ import com.learnsphere.learnsphere.enums.StudentStatus;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Getter
@@ -24,6 +25,6 @@ public class TeacherResponse {
     private String qualifications;
     private StudentStatus status;
     private Date dateOfBirth;
-    private Date createdAt;
-    private Date updatedAt;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
 }

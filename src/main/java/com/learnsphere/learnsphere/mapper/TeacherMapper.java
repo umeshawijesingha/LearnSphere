@@ -30,6 +30,7 @@ public class TeacherMapper implements Mapper <Teacher, TeacherRequest, TeacherRe
     @Override
     public TeacherResponse toResponse(Teacher teacher){
         TeacherResponse response = new TeacherResponse();
+        response.setId(teacher.getId());
         response.setFirstName(teacher.getFirstName());
         response.setLastName(teacher.getLastName());
         response.setEmail(teacher.getEmail());
