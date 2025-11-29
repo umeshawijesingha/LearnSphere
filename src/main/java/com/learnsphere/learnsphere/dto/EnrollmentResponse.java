@@ -6,6 +6,7 @@ import com.learnsphere.learnsphere.enums.EnrollmentCompletionStatus;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Getter
@@ -14,9 +15,9 @@ public class EnrollmentResponse {
     private Long id;
     private Double progress;
     private EnrollmentCompletionStatus completionStatus;
-    private Date enrolledAt;
-    private Date createdAt;
-    private Date updatedAt;
-    private Student student;
-    private Course course;
+    private LocalDateTime enrolledAt;
+    private LocalDateTime createdAt;
+    private LocalDateTime updatedAt;
+    private SimpleStudentResponse student;
+    private SimpleCourseResponse course;
 }

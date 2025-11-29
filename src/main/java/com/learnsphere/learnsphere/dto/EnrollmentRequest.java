@@ -13,9 +13,6 @@ import java.util.Date;
 public class EnrollmentRequest {
     private Double progress;
     private EnrollmentCompletionStatus completionStatus;
-    private Date enrolledAt;
-    private Date createdAt;
-    private Date updatedAt;
     private Student student;
     private Course course;
 }

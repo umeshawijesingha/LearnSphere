@@ -6,6 +6,8 @@ import com.learnsphere.learnsphere.entity.Enrollment;
 import com.learnsphere.learnsphere.mapper.EnrollmentMapper;
 import com.learnsphere.learnsphere.service.EnrollmentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -53,5 +55,14 @@ public class EnrollmentController {
         enrollment = enrollmentService.updateEnrollment(id, enrollment);
 
         return ResponseEntity.ok(enrollmentMapper.toResponse(enrollment));
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<Page<EnrollmentResponse>> search(@RequestParam(required = false) String courseTitle,
+                                                   @RequestParam(required = false) String studentName,
+                                                   Pageable pageable){
+        Page<Enrollment> page =enrollmentService.search(courseTitle,studentName,pageable);
+        Page<EnrollmentResponse> responses = page.map(enrollmentMapper::toResponse);
+        return ResponseEntity.ok(responses);
     }
 }
