@@ -1,17 +1,14 @@
 package com.learnsphere.learnsphere.entity;
 
 import com.learnsphere.learnsphere.enums.StudentStatus;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import jakarta.persistence.Id;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -28,7 +25,10 @@ public class Student {
     private String keycloakUserId;
     private String firstname;
     private String lastName;
+
+    @Column(unique = true)
     private String email;
+
     private String address;
     private String city;
     private String school;
@@ -37,6 +37,11 @@ public class Student {
     private String profileUrl;
     private Date dateOfBirth;
     private StudentStatus status;
+
+    @OneToMany(mappedBy = "id")
+    private List<Enrollment> enrollments;
+
+    private SubCategory category;
     private Date createdAt;
     private Date updatedAt;
 }
