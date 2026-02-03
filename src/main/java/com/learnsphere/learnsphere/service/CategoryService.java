@@ -67,7 +67,6 @@ public class CategoryService {
         return subCategoryRepository.save(existingSubCategory);
     }
 
-
     public void deleteSubCategory(Long id) {
         subCategoryRepository.deleteById(id);
     }
