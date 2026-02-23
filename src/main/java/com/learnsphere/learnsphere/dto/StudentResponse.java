@@ -1,10 +1,12 @@
 package com.learnsphere.learnsphere.dto;
 
+import com.learnsphere.learnsphere.entity.Enrollment;
 import com.learnsphere.learnsphere.enums.StudentStatus;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -22,6 +24,7 @@ public class StudentResponse {
     private String profileUrl;
     private Date dateOfBirth;
     private StudentStatus status;
+    private List<EnrollmentResponse> enrollments;
     private Date createdAt;
     private Date updatedAt;
 }
